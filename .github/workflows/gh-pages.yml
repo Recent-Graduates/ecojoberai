@@ -30,6 +30,9 @@ jobs:
             - name: Setup Pages ⚙
               uses: actions/configure-pages@v3
 
+            - name: Fix for BrowserRouter
+              run: cp ./frontend/dist/index.html ./frontend/dist/404.html
+
             - name: Upload artifact 🔼
               uses: actions/upload-pages-artifact@v1
               with:
