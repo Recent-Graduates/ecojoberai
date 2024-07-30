@@ -5,18 +5,19 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Scheduler from "./components/Scheduler.jsx";
 import Dashboard from "./components/Dashboard.jsx";
+import Constants from "./util/Constants.js";
 
 const router = createBrowserRouter([
 	{
-		path: "/",
+		path: `${Constants.BASE_PATH}/`,
 		element: <App />,
 		children: [
 			{
-				path: "",
+				path: `${Constants.BASE_PATH}/`,
 				element: <Dashboard />,
 			},
 			{
-				path: "scheduler",
+				path: `${Constants.BASE_PATH}/scheduler`,
 				element: <Scheduler />,
 			},
 		],
