@@ -90,6 +90,37 @@ export default function Dashboard() {
 		(value) => value - random.int(0, value)
 	);
 
+	const chart3State = {
+		options: {
+			chart: {
+				height: 280,
+				type: "bar",
+			},
+			dataLabels: {
+				enabled: false,
+			},
+			xaxis: {
+				categories: ["01 Jan", "02 Jan", "03 Jan", "04 Jan", "05 Jan", "06 Jan", "07 Jan"],
+			},
+			fill: {
+				type: "solid",
+				colors: ["rgba(0, 227, 150, 0.85)"],
+			},
+		},
+		series: [
+			{
+				name: "gCO2eq",
+				// Calculate the data based on
+				// the difference between the
+				// conventional and ecojober
+				// data in the previous chart
+				data: chart2State.series[0].data.map(
+					(conventional, idx) => conventional - chart2State.series[1].data[idx]
+				),
+			},
+		],
+	};
+
 	return (
 		<>
 			<h1>Dashboard</h1>
@@ -115,6 +146,12 @@ export default function Dashboard() {
 			<h3>
 				CO<sub>2</sub> saved per day
 			</h3>
+			<Chart
+				options={chart3State.options}
+				series={chart3State.series}
+				width="500"
+				type="bar"
+			/>
 		</>
 	);
 }
