@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Chart from "react-apexcharts";
+import random from "random";
 
 export default function Dashboard() {
 	const chart1State = {
@@ -28,11 +29,27 @@ export default function Dashboard() {
 		series: [
 			{
 				name: "Print",
-				data: [45, 52, 38, 45, 19, 23, 2],
+				data: [
+					random.int(0, 50),
+					random.int(0, 50),
+					random.int(0, 50),
+					random.int(0, 50),
+					random.int(0, 50),
+					random.int(0, 50),
+					random.int(0, 50),
+				],
 			},
 			{
 				name: "Scan",
-				data: [40, 10, 20, 50, 5, 18, 9],
+				data: [
+					random.int(0, 50),
+					random.int(0, 50),
+					random.int(0, 50),
+					random.int(0, 50),
+					random.int(0, 50),
+					random.int(0, 50),
+					random.int(0, 50),
+				],
 			},
 		],
 	};
@@ -52,7 +69,15 @@ export default function Dashboard() {
 		series: [
 			{
 				name: "Conventional",
-				data: [100, 90, 85, 75, 80, 90, 70],
+				data: [
+					random.int(50, 100),
+					random.int(50, 100),
+					random.int(50, 100),
+					random.int(50, 100),
+					random.int(50, 100),
+					random.int(50, 100),
+					random.int(50, 100),
+				],
 			},
 			{
 				name: "EcoJober",
@@ -61,7 +86,9 @@ export default function Dashboard() {
 		],
 	};
 	// Just set the reduced data based on the conventional data
-	chart2State.series[1].data = chart2State.series[0].data.map((value) => value - 50);
+	chart2State.series[1].data = chart2State.series[0].data.map(
+		(value) => value - random.int(0, value)
+	);
 
 	return (
 		<>
