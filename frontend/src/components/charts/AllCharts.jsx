@@ -1,3 +1,5 @@
+import { Typography } from "antd";
+const { Title } = Typography;
 import Chart from "react-apexcharts";
 import { chart1State, chart2State, chart3State } from "./ChartStates";
 import { Col, Row } from "antd";
@@ -13,9 +15,9 @@ export default function AllCharts() {
 		<>
 			<Row justify="space-evenly">
 				<Col xs={commonOptions.colXsSizeForCharts} md={commonOptions.colMdSizeForCharts}>
-					<h3>
+					<Title level={4}>
 						CO<sub>2</sub> consumption comparision
-					</h3>
+					</Title>
 					<Chart
 						options={chart2State.options}
 						series={chart2State.series}
@@ -25,9 +27,9 @@ export default function AllCharts() {
 					/>
 				</Col>
 				<Col xs={commonOptions.colXsSizeForCharts} md={commonOptions.colMdSizeForCharts}>
-					<h3>
+					<Title level={4}>
 						CO<sub>2</sub> saved per day
-					</h3>
+					</Title>
 					<Chart
 						options={chart3State.options}
 						series={chart3State.series}
@@ -37,7 +39,7 @@ export default function AllCharts() {
 					/>
 				</Col>
 				<Col xs={commonOptions.colXsSizeForCharts} md={commonOptions.colMdSizeForCharts}>
-					<h3>Print vs Scan Jobs</h3>
+					<Title level={4}>Print vs Scan Jobs</Title>
 					<Chart
 						options={chart1State.options}
 						series={chart1State.series}
