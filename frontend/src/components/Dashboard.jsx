@@ -6,7 +6,6 @@ export default function Dashboard() {
 	const chart1State = {
 		options: {
 			chart: {
-				height: 280,
 				type: "area",
 			},
 			dataLabels: {
@@ -56,7 +55,6 @@ export default function Dashboard() {
 	const chart2State = {
 		options: {
 			chart: {
-				height: 280,
 				type: "bar",
 			},
 			dataLabels: {
@@ -93,7 +91,6 @@ export default function Dashboard() {
 	const chart3State = {
 		options: {
 			chart: {
-				height: 280,
 				type: "bar",
 			},
 			dataLabels: {
@@ -128,30 +125,15 @@ export default function Dashboard() {
 			<h2>Job metrics</h2>
 			<p>Here you can see the job metrics as a graph</p>
 			<h3>Print vs Scan Jobs</h3>
-			<Chart
-				options={chart1State.options}
-				series={chart1State.series}
-				width="500"
-				type="area"
-			/>
+			<Chart options={chart1State.options} series={chart1State.series} type="area" />
 			<h3>
 				CO<sub>2</sub> consumption comparision
 			</h3>
-			<Chart
-				options={chart2State.options}
-				series={chart2State.series}
-				width="500"
-				type="bar"
-			/>
+			<Chart options={chart2State.options} series={chart2State.series} type="bar" />
 			<h3>
 				CO<sub>2</sub> saved per day
 			</h3>
-			<Chart
-				options={chart3State.options}
-				series={chart3State.series}
-				width="500"
-				type="bar"
-			/>
+			<Chart options={chart3State.options} series={chart3State.series} type="bar" />
 		</>
 	);
 }
