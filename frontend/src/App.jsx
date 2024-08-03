@@ -5,11 +5,18 @@ import Footer from "./components/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+const containerStyle = {
+	paddingLeft: "10%",
+	paddingRight: "10%",
+};
+
 function App() {
 	return (
 		<>
 			<Header />
-			<Outlet />
+			<div style={containerStyle}>
+				<Outlet />
+			</div>
 			<ToastContainer
 				position="top-right"
 				autoClose={5000}
