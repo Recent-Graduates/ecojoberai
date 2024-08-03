@@ -1,6 +1,7 @@
 import { toast } from "react-toastify";
 import { Button, Collapse, Form, Input, Select, Switch } from "antd";
 const { Option } = Select;
+import zones from "../../mockdata/Zones.json";
 const formItemLayout = {
 	labelCol: {
 		xs: {
@@ -60,8 +61,11 @@ export default function NewJob() {
 				</Form.Item>
 				<Form.Item label="Zone" name="zone" {...commonRules}>
 					<Select placeholder="Please select a Zone">
-						<Option value="a">Zone A</Option>
-						<Option value="b">Zone B</Option>
+						{Object.keys(zones).map((key) => (
+							<Option key={key} value={key}>
+								{zones[key].zoneName}
+							</Option>
+						))}
 					</Select>
 				</Form.Item>
 				<Form.Item label="Deadline" name="deadline" {...commonRules}>
