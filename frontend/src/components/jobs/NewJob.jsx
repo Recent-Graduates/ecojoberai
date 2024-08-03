@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { Button, Collapse, Form, Input, Select, Switch } from "antd";
 const { Option } = Select;
 const formItemLayout = {
@@ -40,6 +41,7 @@ const commonRules = {
 export default function NewJob() {
 	const onFinish = (values) => {
 		console.log("Received values of form: ", values);
+		toast.success(`Job added: ${JSON.stringify(values)}`);
 	};
 	const jobForm = (
 		<>
