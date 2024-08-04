@@ -1,18 +1,20 @@
 package com.kas.ecojober.entities;
 
-import org.springframework.stereotype.Component;
-
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
-@Component
 @Entity
+@Table(name = "machine")
 public class Machine {
 
 	@Id
-	private String machineId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long machineId;
 	private String machineName;
 	private String zone;
 	private String capabilities;
