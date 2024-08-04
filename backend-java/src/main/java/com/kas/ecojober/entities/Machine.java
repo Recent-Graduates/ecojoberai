@@ -1,5 +1,7 @@
 package com.kas.ecojober.entities;
 
+import java.util.ArrayList;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,7 +19,7 @@ public class Machine {
 	private Long machineId;
 	private String machineName;
 	private String zone;
-	private String capabilities;
+	private ArrayList<String> capabilities;
 	private String status;
 
 }
