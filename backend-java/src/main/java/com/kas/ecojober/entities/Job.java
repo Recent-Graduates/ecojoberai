@@ -1,5 +1,7 @@
 package com.kas.ecojober.entities;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,10 +20,10 @@ public class Job {
 	private String urgency;
 	private String status;
 	private String originatingZone;
-	private String creationTime;
-	private String deadline;
-	private String scheduledTime;
+	private LocalDateTime creationTime;
+	private LocalDateTime deadline;
+	private LocalDateTime scheduledTime;
 	private String kind;
-	private String distributable;
+	private boolean distributable;
 
 }
