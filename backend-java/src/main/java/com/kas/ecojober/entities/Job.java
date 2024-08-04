@@ -1,7 +1,5 @@
 package com.kas.ecojober.entities;
 
-import org.springframework.stereotype.Component;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,7 +8,6 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
-@Component
 @Entity
 @Table(name = "Jobs")
 public class Job {
