@@ -16,8 +16,7 @@ public class JobsService {
 	private JobsRepository jobsRepository;
 
 	public List<Job> getAllJobs() {
-		List<Job> jobs = jobsRepository.findAll();
-		return jobs;
+		return jobsRepository.findAll();
 	}
 
 	public Optional<Job> getJobById(String id) {

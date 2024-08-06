@@ -21,8 +21,7 @@ public class ZoneService {
 
 	public String getAllZones() {
 		URI uri = UriComponentsBuilder.fromUriString(electrycityMapsURL).pathSegment("zones").build().toUri();
-		String response = restTemplate.getForObject(uri, String.class);
-		return response;
+		return restTemplate.getForObject(uri, String.class);
 	}
 
 }
