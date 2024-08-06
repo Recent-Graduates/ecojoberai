@@ -19,7 +19,7 @@ public class MachinesService {
 		return machinesRepository.findAll();
 	}
 
-	public Optional<Machine> getMachineById(Long id) {
+	public Optional<Machine> getMachineById(String id) {
 		return machinesRepository.findById(id);
 	}
 

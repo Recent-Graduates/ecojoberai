@@ -20,7 +20,7 @@ public class JobsService {
 		return jobs;
 	}
 
-	public Optional<Job> getJobById(Long id) {
+	public Optional<Job> getJobById(String id) {
 		return jobsRepository.findById(id);
 	}
 

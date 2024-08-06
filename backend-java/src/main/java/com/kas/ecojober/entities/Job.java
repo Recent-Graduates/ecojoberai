@@ -2,21 +2,19 @@ package com.kas.ecojober.entities;
 
 import java.time.LocalDateTime;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import lombok.Data;
 
 @Data
-@Entity
-@Table(name = "Jobs")
+@Document(collection = "Jobs")
 public class Job {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long jobId;
+	@Indexed(unique = true)
+	private String jobId;
 	private String urgency;
 	private String status;
 	private String originatingZone;

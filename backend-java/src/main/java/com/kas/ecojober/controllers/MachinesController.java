@@ -30,7 +30,7 @@ public class MachinesController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Optional<Machine>> getMachineById(@PathVariable Long id) {
+	public ResponseEntity<Optional<Machine>> getMachineById(@PathVariable String id) {
 		Optional<Machine> response = machinesService.getMachineById(id);
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}

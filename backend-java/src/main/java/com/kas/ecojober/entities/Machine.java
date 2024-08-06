@@ -2,21 +2,18 @@ package com.kas.ecojober.entities;
 
 import java.util.ArrayList;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import lombok.Data;
 
 @Data
-@Entity
-@Table(name = "machine")
+@Document(collection = "machine")
 public class Machine {
-
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long machineId;
+	@Indexed(unique = true)
+	private String machineId;
 	private String machineName;
 	private String zone;
 	private ArrayList<String> capabilities;
