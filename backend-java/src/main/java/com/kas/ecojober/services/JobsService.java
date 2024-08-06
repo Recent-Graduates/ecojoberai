@@ -1,5 +1,6 @@
 package com.kas.ecojober.services;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,6 +25,8 @@ public class JobsService {
 	}
 
 	public Job addJob(Job newJob) {
+		newJob.setStatus("created");
+		newJob.setCreationTime(LocalDateTime.now());
 		return jobsRepository.save(newJob);
 	}
 }
