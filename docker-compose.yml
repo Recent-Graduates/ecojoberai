@@ -1,9 +1,7 @@
 services:
   ecojoberai_db-database:
     hostname: ecojoberai_db
-    build:
-      context: ./database
-    image: ecojoberai_db:latest
+    image: mongo:5.0.27
     restart: always
     networks:
       - ecojoberai-network
