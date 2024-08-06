@@ -1,0 +1,36 @@
+services:
+  ecojoberai_db-database:
+    hostname: ecojoberai_db
+    build:
+      context: ./database
+    image: ecojoberai_db:latest
+    restart: always
+    networks:
+      - ecojoberai-network
+    ports:
+      - "27017:27017"
+    volumes:
+      - ecojoberai_db_volume:/data/db
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+
+  ecojoberai-backend:
+    depends_on:
+      ecojoberai_db-database:
+        condition: service_healthy
+    hostname: ecojoberai-backend
+    build:
+      context: ./backend-java
+    image: ecojoberai_backend:latest
+    restart: always
+    networks:
+      - ecojoberai-network
+    ports:
+      - "8080:8080"
+
+networks:
+  ecojoberai-network:
+    driver: bridge
+
+volumes:
+  ecojoberai_db_volume:
