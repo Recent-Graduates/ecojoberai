@@ -6,7 +6,7 @@ COPY . .
 
 RUN npm install
 
-RUN npm build
+RUN npm run build
 
 FROM alpine:3.17.1
 
