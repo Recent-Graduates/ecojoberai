@@ -26,6 +26,17 @@ services:
     ports:
       - "8080:8080"
 
+  ecojoberai-frontend:
+    hostname: ecojoberai-frontend
+    build:
+      context: ./frontend
+    image: ecojoberai_frontend:latest
+    restart: always
+    networks:
+      - ecojoberai-network
+    ports:
+      - "5173:80"
+
 networks:
   ecojoberai-network:
     driver: bridge
