@@ -14,9 +14,9 @@ FROM httpd:alpine
 RUN ["/bin/sh", "-c", "rm -f /usr/local/apache2/htdocs/index.html"]
 
 # Copy the build output
-COPY --from=builder /vitejsapp/dist/ /usr/local/apache2/htdocs/
+COPY --from=builder /vitejsapp/dist/ /usr/local/apache2/htdocs/ecojoberai/
 
 # Install curl for healthcheck
 RUN ["/bin/sh", "-c", "apk --upgrade --no-cache add curl"]
 
-HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD [ "curl", "http://localhost/index.html" ]
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD [ "curl", "http://localhost/ecojoberai/index.html" ]
