@@ -8,7 +8,7 @@ RUN npm install
 
 RUN npm run build
 
-FROM alpine:3.17.1
+FROM httpd:alpine
 
 # Remove the default landing page
 RUN ["/bin/sh", "-c", "rm -f /usr/local/apache2/htdocs/index.html"]
