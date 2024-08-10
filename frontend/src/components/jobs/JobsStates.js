@@ -18,16 +18,19 @@ const jobsColumns = [
 		title: "Creation time",
 		dataIndex: "creationTime",
 		key: "creationTime",
+		render: (text) => text.split(".")[0].replace("T", " "),
 	},
 	{
 		title: "Deadline",
 		dataIndex: "deadline",
 		key: "deadline",
+		render: (text) => text.split(".")[0].replace("T", " "),
 	},
 	{
 		title: "Scheduled time",
 		dataIndex: "scheduledTime",
 		key: "scheduledTime",
+		render: (text) => text.split(".")[0].replace("T", " "),
 	},
 	{
 		title: "Kind",
@@ -38,6 +41,7 @@ const jobsColumns = [
 		title: "Distributable",
 		dataIndex: "distributable",
 		key: "distributable",
+		render: (text) => (text ? "Yes" : "No"),
 	},
 	{
 		title: "Status",

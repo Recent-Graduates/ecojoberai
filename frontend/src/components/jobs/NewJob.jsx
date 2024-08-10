@@ -1,7 +1,9 @@
 import { toast } from "react-toastify";
 import { Button, Collapse, Form, Input, Select, Switch } from "antd";
+import { useForm } from "antd/lib/form/Form";
 const { Option } = Select;
 import zones from "../../mockdata/Zones.json";
+import axios from "axios";
 const formItemLayout = {
 	labelCol: {
 		xs: {
@@ -40,13 +42,40 @@ const commonRules = {
 	],
 };
 export default function NewJob() {
-	const onFinish = (values) => {
+	const [form] = useForm();
+
+	const onFinish = async (values) => {
+		const requestBody = {
+			urgency: values.urgency,
+			originatingZone: values.zone,
+			creationTime: new Date().toISOString(),
+			deadline: values.deadline + "T00:00:00.000",
+			scheduledTime: new Date().toISOString(),
+			kind: values.kind,
+			distributable: values.distributable,
+		};
 		console.log("Received values of form: ", values);
-		toast.success(`Job added: ${JSON.stringify(values)}`);
+		try {
+			const response = await axios.post(
+				"https://ecojoberai-backend-adxywvifka-el.a.run.app/api/v1/jobs/",
+				requestBody
+			);
+			toast.success(`Job ID ${response.data.jobId} successfully created`);
+			form.resetFields();
+		} catch (error) {
+			toast.error("Failed to create job");
+			console.error("There was an error creating the job", error);
+		}
 	};
+
+	const onReset = () => {
+		form.resetFields();
+	};
+
 	const jobForm = (
 		<>
 			<Form
+			form={form}
 				name="addjob"
 				{...formItemLayout}
 				onFinish={onFinish}
@@ -81,7 +110,10 @@ export default function NewJob() {
 				</Form.Item>
 				<Form.Item {...tailFormItemLayout}>
 					<Button type="primary" htmlType="submit">
-						Add Job
+					Add Job
+					</Button>
+					<Button danger onClick={onReset} style={{ marginLeft: "10px" }}>
+					Reset
 					</Button>
 				</Form.Item>
 			</Form>
