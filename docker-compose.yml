@@ -20,6 +20,8 @@ services:
     build:
       context: ./backend-java
     image: ecojoberai_backend:latest
+    environment:
+      - PRODUCTION_DATABASE_URI=mongodb://ecojoberai_db:27017/ecojober
     restart: always
     networks:
       - ecojoberai-network
