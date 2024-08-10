@@ -15,8 +15,7 @@ export default function JobsTable() {
 				"https://ecojoberai-backend-adxywvifka-el.a.run.app/api/v1/jobs/"
 			);
 			const sortedData = response.data.sort((a, b) => {
-				const urgencyOrder = { high: 1, medium: 2, low: 3 };
-				return urgencyOrder[a.urgency.toLowerCase()] - urgencyOrder[b.urgency.toLowerCase()];
+				return new Date(b.creationTime) - new Date(a.creationTime);
 			});
 			setJobsData(sortedData);
 			setloading(false);

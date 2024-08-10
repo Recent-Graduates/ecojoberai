@@ -16,6 +16,7 @@ function App() {
 			<Header />
 			<div style={containerStyle}>
 				<Outlet />
+				<hr />
 			</div>
 			<ToastContainer
 				position="top-right"
